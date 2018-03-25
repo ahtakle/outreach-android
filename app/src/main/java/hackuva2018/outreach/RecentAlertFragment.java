@@ -7,17 +7,19 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link Map.OnFragmentInteractionListener} interface
+ * {@link RecentAlertFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link Map#newInstance} factory method to
+ * Use the {@link RecentAlertFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Map extends Fragment {
+public class RecentAlertFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,7 +31,7 @@ public class Map extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public Map() {
+    public RecentAlertFragment() {
         // Required empty public constructor
     }
 
@@ -39,11 +41,11 @@ public class Map extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Map.
+     * @return A new instance of fragment RecentAlertFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static Map newInstance(String param1, String param2) {
-        Map fragment = new Map();
+    public static RecentAlertFragment newInstance(String param1, String param2) {
+        RecentAlertFragment fragment = new RecentAlertFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,8 +66,16 @@ public class Map extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_map2, container, false);
+        View view = inflater.inflate(R.layout.fragment_recent_alert, container, false);
+        Button btnAlert = (Button)view.findViewById(R.id.button5);
+        btnAlert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "Recent Alerts Button Clicked", Toast.LENGTH_SHORT).show();
+            }
+        }); return view;
     }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -80,8 +90,7 @@ public class Map extends Fragment {
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
+            Toast.makeText(context,"Recent Alerts Fragment Attached", Toast.LENGTH_SHORT).show();
         }
     }
 

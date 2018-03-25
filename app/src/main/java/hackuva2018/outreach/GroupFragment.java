@@ -7,17 +7,19 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link Group.OnFragmentInteractionListener} interface
+ * {@link GroupFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link Group#newInstance} factory method to
+ * Use the {@link GroupFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Group extends Fragment {
+public class GroupFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,7 +31,7 @@ public class Group extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public Group() {
+    public GroupFragment() {
         // Required empty public constructor
     }
 
@@ -39,11 +41,11 @@ public class Group extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Group.
+     * @return A new instance of fragment GroupFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static Group newInstance(String param1, String param2) {
-        Group fragment = new Group();
+    public static GroupFragment newInstance(String param1, String param2) {
+        GroupFragment fragment = new GroupFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,7 +66,14 @@ public class Group extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_group, container, false);
+        View view = inflater.inflate(R.layout.fragment_group, container, false);
+        Button btnAlert = (Button)view.findViewById(R.id.button);
+        btnAlert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "Group Button Clicked", Toast.LENGTH_SHORT).show();
+            }
+        }); return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -80,8 +89,7 @@ public class Group extends Fragment {
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
+            Toast.makeText(context,"Group Fragment Attached", Toast.LENGTH_SHORT).show();
         }
     }
 

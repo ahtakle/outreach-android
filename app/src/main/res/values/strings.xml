@@ -28,6 +28,8 @@
     <string name="prompt_name">Name</string>
     <string name="prompt_number">Number</string>
     <string name="register">Register</string>
+    <string name="map_btton">View Map</string>
+    <string name="group_btton">Add Lauren to Group</string>
 
 
 </resources>
