@@ -28,6 +28,7 @@
     <string name="prompt_name">Name</string>
     <string name="prompt_number">Number</string>
     <string name="register">Register</string>
+    <string name="title_activity_pick_contacts">PickContactsActivity</string>
 
 
 </resources>

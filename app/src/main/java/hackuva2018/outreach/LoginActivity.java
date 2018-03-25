@@ -100,8 +100,35 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             }
         });
 
+        Button contacts = (Button) findViewById(R.id.add_contacts_button);
+        contacts.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startPickContactsActivity();
+            }
+        });
+
+        Button safeTrekButton = (Button) findViewById(R.id.safetrek_button);
+        safeTrekButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startSafeTrekActivity();
+            }
+        });
+
+
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+    }
+
+    private void startSafeTrekActivity() {
+        Intent intent = new Intent(this, SafeTrekActivity.class);
+        startActivity(intent);
+    }
+
+    private void startPickContactsActivity() {
+        Intent intent = new Intent(this, PickContactsActivity.class);
+        startActivity(intent);
     }
 
     private void startRegisterIntent() {

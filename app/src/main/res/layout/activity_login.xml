@@ -102,6 +102,17 @@
                 android:textColor="@color/white"
                 android:textStyle="bold" />
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="add contacts"
+                android:id="@+id/add_contacts_button"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/safetrek_button"
+                android:text="safe trek"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
